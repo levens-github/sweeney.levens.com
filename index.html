@@ -18,7 +18,8 @@ const forms=w=>[w,w.replace(/s$/,''),w.replace(/(ch|sh|ss|x|z|o)es$/,'$1'),w+'s'
 const has=(t,f)=>/\d/.test(f)?t.includes(' '+f+' '):t.includes(f);
 const exact=(t,w)=>forms(w).some(f=>(f.length>1||/\d/.test(f))&&has(t,f));
 const off1=(a,b)=>{if(Math.abs(a.length-b.length)>1)return false;let i=0,j=0,e=0;while(i<a.length&&j<b.length){if(a[i]===b[j]){i++;j++;continue}if(++e>1)return false;if(a.length>b.length)i++;else if(b.length>a.length)j++;else{i++;j++}}return e+(a.length-i)+(b.length-j)<=1};
-const close=(x,w)=>exact(x.t,w)||(w.length>=4&&/^[a-z]+$/.test(w)&&(x.words||(x.words=[...new Set(x.t.split(' '))])).some(t=>t.length>=3&&off1(w,t)));
+const swap=(a,b)=>{if(a.length!==b.length)return false;const d=[];for(let i=0;i<a.length;i++)if(a[i]!==b[i])d.push(i);return d.length===2&&d[1]===d[0]+1&&a[d[0]]===b[d[1]]&&a[d[1]]===b[d[0]]};
+const close=(x,w)=>exact(x.t,w)||(w.length>=4&&/^[a-z]+$/.test(w)&&(x.words||(x.words=[...new Set(x.t.split(' '))])).some(t=>t.length>=3&&(off1(w,t)||swap(w,t))));
 function run(){
   const words=q.value.trim().toLowerCase().replace(/_\S*/g,' ').replace(/[^a-z0-9' ]+/g,' ').split(/\s+/).filter(w=>w&&!/^\d{3}$/.test(w)).reduce((a,w)=>{const p=a[a.length-1];if(p&&/^\d{1,2}[a-z]?$/.test(w)&&/^(family|trips|trip|church|dad|mom|larry|[ftcdml])( |$)/.test(p))a[a.length-1]=p.replace(/^trip( |$)/,'trips$1')+' '+w;else a.push(w);return a},[]);
   const s=words.length>0;
