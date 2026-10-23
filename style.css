@@ -29,3 +29,4 @@ section{scroll-margin-top:78px}
 .qrow{display:flex;align-items:center;gap:14px;flex:1 1 260px;max-width:440px;min-width:0}.qrow #q{flex:1 1 auto;min-width:0;max-width:none}.top{display:none;color:var(--accent);font-weight:bold;text-decoration:none}
 #none{text-align:center;color:var(--muted);margin:48px 0;font-size:1.05rem}
 @media(max-width:640px){.qrow{max-width:none;flex:none}.top{display:inline}}
+#near{text-align:center;color:var(--muted);margin:28px 0 0;font-size:.95rem}
