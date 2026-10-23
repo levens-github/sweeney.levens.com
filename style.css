@@ -23,3 +23,9 @@ footer{padding:40px 16px;color:var(--muted);font-size:.9rem}
 section{scroll-margin-top:78px}
 @media(max-width:640px){.snaps{gap:14px}.snaps .portrait{width:44%;padding:7px 7px 4px}.snaps .portrait img{height:170px}.barin{flex-direction:column;align-items:stretch;gap:8px;padding:8px 16px}nav{gap:10px;justify-content:space-between;font-size:.95rem}#q{max-width:none;flex:none}section{scroll-margin-top:112px}h1{font-size:2rem}}
 @media(max-width:360px){nav{font-size:.82rem;gap:6px}}
+/* 2026-10-23: gift album line under the verse, picture counts, search row with a phone "Top" link, empty-search line */
+.gift{text-align:center;margin:-8px 0 30px}.gift p{margin:0 0 12px;color:var(--ink);font-size:1.05rem}.gift .btn{display:inline-block;padding:10px 24px}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:12px}.foot .btn{align-self:auto}.count{font-size:.85rem;color:var(--muted);font-family:system-ui,sans-serif}
+.qrow{display:flex;align-items:center;gap:14px;flex:1 1 260px;max-width:440px;min-width:0}.qrow #q{flex:1 1 auto;min-width:0;max-width:none}.top{display:none;color:var(--accent);font-weight:bold;text-decoration:none}
+#none{text-align:center;color:var(--muted);margin:48px 0;font-size:1.05rem}
+@media(max-width:640px){.qrow{max-width:none;flex:none}.top{display:inline}}
